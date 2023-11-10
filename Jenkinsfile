@@ -17,12 +17,12 @@ pipeline {
             }
         }
        stage('push'){
-        steps{
-            sh "echo \$DOCKERHUB_CREDENTIALS_PSW | docker login -u \$DOCKERHUB_CREDENTIALS_USR --password-stdin"
-            sh "docker tag trio-task-mysql:5.7 davidkapcsandi/mytriotasksql1:latest"
-            sh "docker tag trio-task-flask-app davidkapcsandi/mytriotaskflask1:latest"
-            sh "docker push davidkapcsandi/mytriotasksql1:latest"
-            sh "docker push davidkapcsandi/mytriotaskflask1:latest"
+            steps{
+                sh "echo \$DOCKERHUB_CREDENTIALS_PSW | docker login -u \$DOCKERHUB_CREDENTIALS_USR --password-stdin"
+                sh "docker tag trio-task-mysql:5.7 davidkapcsandi/mytriotasksql:latest"
+                sh "docker tag trio-task-flask-app davidkapcsandi/mytriotaskflask:latest"
+                sh "docker push davidkapcsandi/mytriotasksql:latest"
+                sh "docker push davidkapcsandi/mytriotaskflask:latest"
         }
        } 
     }

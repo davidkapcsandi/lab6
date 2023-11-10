@@ -2,7 +2,7 @@ docker rm-f $(docker ps -qa)
 
 docker network create trio-task-network
 docker volume create new-volume
-docker build -t trio-task-mysql:5.7
+docker build -t trio-task-mysql:5.7 db
 docker build -t trio-task-flask-app:latest flask-app
 docker run -d \
     --name mysql \
